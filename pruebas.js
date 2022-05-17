@@ -1,2 +1,2 @@
-let nameUser = 'Marcos';
-console.log(nameUser.pop());
+const arr = [];
+console.log(arr.shift());
