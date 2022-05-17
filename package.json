@@ -1,0 +1,33 @@
+{
+    "name": "202205-w02ch02_alejandro-montes",
+    "version": "1.0.0",
+    "description": "Challenge en parejas.\r  Crea un modulo con funciones que repliquen, sin utilizar ninguno de los métodos ya existentes en el prototipo, los siguientes métodos de array: length, push, pop, unshift, shift, some, every, find, filter, map, findIndex, includes, indexOf, reduce, join",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --watchAll --collectCoverage",
+        "lint": "eslint"
+    },
+    "type": "module",
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.15.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.2.0",
+        "eslint-plugin-promise": "^6.0.0"
+    },
+    "prettier": {
+        "singleQuote": true
+    },
+    "babel": {
+        "env": {
+            "test": {
+                "plugins": [
+                    "@babel/plugin-transform-modules-commonjs"
+                ]
+            }
+        }
+    }
+}
