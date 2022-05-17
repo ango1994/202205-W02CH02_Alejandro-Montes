@@ -1,4 +1,4 @@
-import { length, push, pop, shift } from './functions.js';
+import { length, push, pop, shift, unshift } from './functions.js';
 
 describe('Given the function length', () => {
     const arr = [2, 3];
@@ -100,6 +100,31 @@ describe('Given the function shift', () => {
         });
         test('Then it should return array undefined', () => {
             expect(result).toBe(expectedResult);
+        });
+    });
+    describe('When it doesnt recibe an array', () => {
+        const arr = 'pepe';
+        test('Then it should throw an error', () => {
+            expect(() => {
+                shift(arr);
+            }).toThrow('Is not an array');
+        });
+    });
+});
+describe('Given the function unshift', () => {
+    describe('When it receives ar array [1, 2] and a primitive', () => {
+        const arr = [1, 2];
+        let item = 3;
+        let result;
+        const expectedResult = 3;
+        beforeAll(() => {
+            result = unshift(arr, item);
+        });
+        test('Then it should return the array length', () => {
+            expect(result).toBe(expectedResult);
+        });
+        test('Then it shoul add the item as idex 0 of the array', () => {
+            expect(arr).toContain(item);
         });
     });
 });
