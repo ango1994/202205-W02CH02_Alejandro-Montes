@@ -7,16 +7,15 @@ export function push(arr, item) {
 }
 export function pop(arr) {
     const poped = arr[arr.length - 1];
-    if (arr.length === 0) {
-        return undefined;
+    if (typeof arr === 'function') {
+        throw new Error('Is a function');
     }
     if (typeof arr !== 'object') {
         throw new Error('Is not an array');
     }
-    if (Object.is(arr, 'function')) {
-        throw new Error('Is a function');
+    if (arr.length === 0) {
+        return undefined;
     }
-
     arr.length = arr.length - 1;
     return poped;
 }
