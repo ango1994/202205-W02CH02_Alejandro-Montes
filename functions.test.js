@@ -108,6 +108,7 @@ describe('Given the function shift', () => {
         });
     });
 });
+
 describe('Given the function unshift', () => {
     describe('When it receives ar array [1, 2] and a primitive', () => {
         const arr = [1, 2];
