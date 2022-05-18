@@ -63,17 +63,14 @@ describe('Given the function pop', () => {
             }).toThrow('Is not an array');
         });
     });
-    // describe('When it recibes a function', () => {
-    //     let prueba;
-    //     beforeAll(() => {
-    //         prueba = () => {};
-    //     });
-    //     test('Then it should throw an error', () => {
-    //         expect(() => {
-    //             pop(prueba);
-    //         }).toThrowError('Is a function');
-    //     });
-    // });
+    describe('When it recibes a function', () => {
+        test('Then it should throw an error', () => {
+            let prueba = () => {};
+            expect(() => {
+                pop(prueba);
+            }).toThrowError('Is a function');
+        });
+    });
 });
 
 describe('Given the function shift', () => {
@@ -111,6 +108,7 @@ describe('Given the function shift', () => {
         });
     });
 });
+
 describe('Given the function unshift', () => {
     describe('When it receives ar array [1, 2] and a primitive', () => {
         const arr = [1, 2];
