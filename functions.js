@@ -38,3 +38,40 @@ export function unshift(arr, item) {
     }
     return arr.length;
 }
+export function some(arr, func) {
+    for (let i = 0; i < arr.length; i++) {
+        if (func(arr[i]) === true) {
+            return true;
+        }
+    }
+}
+export function every(arr, func) {
+    let itemsInside = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (func(arr[i]) === true) {
+            itemsInside++;
+        }
+    }
+    if (itemsInside === arr.length) {
+        return true;
+    }
+    return false;
+}
+
+export function find(arr, func, index) {
+    for (let i = index || 0; i < arr.length; i++) {
+        if (func(arr[i]) === true) {
+            return arr[i];
+        }
+    }
+}
+
+export function filter(arr, func, index) {
+    const returnedArray = [];
+    for (let i = index || 0; i < arr.length; i++) {
+        if (func(arr[i]) === true) {
+            push(returnedArray, arr[i]);
+        }
+    }
+    return returnedArray;
+}

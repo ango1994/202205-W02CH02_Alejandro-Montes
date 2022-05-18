@@ -1,4 +1,14 @@
-import { length, push, pop, shift, unshift } from './functions.js';
+import {
+    length,
+    push,
+    pop,
+    shift,
+    unshift,
+    some,
+    every,
+    find,
+    filter,
+} from './functions.js';
 
 describe('Given the function length', () => {
     const arr = [2, 3];
@@ -123,6 +133,76 @@ describe('Given the function unshift', () => {
         });
         test('Then it shoul add the item as idex 0 of the array', () => {
             expect(arr).toContain(item);
+        });
+    });
+});
+
+describe('Given the function some', () => {
+    describe('When it receives an array and a function', () => {
+        test('Then it should return true if at least one item of the function passes the test', () => {
+            //Arange
+            const arr = [1, 4, 6, 11, 5];
+            const isGreaterThan10 = (item) => {
+                return item > 10;
+            };
+            //Act
+            let result = some(arr, isGreaterThan10);
+            expect(result).toBe(true);
+        });
+    });
+});
+
+describe('Given the function every', () => {
+    describe('When it receives an array and a function', () => {
+        test('Then it should return true if every item of the function passes the test', () => {
+            //Arange
+            const arr = [11, 42, 61, 11, 51];
+            const isGreaterThan10 = (item) => {
+                return item > 10;
+            };
+            //Act
+            let result = every(arr, isGreaterThan10);
+            expect(result).toBe(true);
+        });
+        test('Then it should return true if every item of the function passes the test', () => {
+            //Arange
+            const arr = [1, 42, 61, 11, 51];
+            const isGreaterThan10 = (item) => {
+                return item > 10;
+            };
+            //Act
+            let result = every(arr, isGreaterThan10);
+            expect(result).toBe(false);
+        });
+    });
+});
+describe('Given the function find', () => {
+    describe('When it receives an array and a function', () => {
+        test('Then it should return the first item that satisfies the provided testing function', () => {
+            //Arange
+            const arr = [1, 4, 10, 12, 11, 5];
+            const isGreaterThan10 = (item) => {
+                return item > 10;
+            };
+            const index = 2;
+            //Act
+            let result = find(arr, isGreaterThan10, index);
+            expect(result).toBe(12);
+        });
+    });
+});
+describe('Given the function filter', () => {
+    describe('When it receives an array and a function', () => {
+        test('Then it should return an array with the item that satisfie the provided testing function', () => {
+            //Arange
+            const arr = [1, 4, 10, 12, 11, 5];
+            const isGreaterThan10 = (item) => {
+                return item > 10;
+            };
+
+            //Act
+            let result = filter(arr, isGreaterThan10);
+            expect(result).toStrictEqual([12, 11]);
         });
     });
 });
