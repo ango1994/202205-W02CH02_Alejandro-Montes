@@ -39,23 +39,21 @@ export function unshift(arr, item) {
     return arr.length;
 }
 export function some(arr, func) {
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i]) === true) {
+    for (const item of arr) {
+        if (func(item) === true) {
             return true;
         }
     }
 }
 export function every(arr, func) {
     let itemsInside = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (func(arr[i]) === true) {
+
+    for (const item of arr) {
+        if (func(item) === true) {
             itemsInside++;
         }
     }
-    if (itemsInside === arr.length) {
-        return true;
-    }
-    return false;
+    return itemsInside === arr.length;
 }
 
 export function find(arr, func, index) {

@@ -41,6 +41,7 @@ describe('Given the function push', () => {
 
 describe('Given the function pop', () => {
     const arr = [2, 3, 4, 5];
+
     let result;
     const expectedResult = 5;
     beforeAll(() => {
@@ -55,27 +56,28 @@ describe('Given the function pop', () => {
         });
     });
     describe('When it receives an  empty array []', () => {
-        const arr = [];
-        let result;
+        const emptyArr = [];
         const expectedResult = undefined;
         beforeAll(() => {
-            result = pop(arr);
+            result = pop(emptyArr);
         });
         test('Then it should return array undefined', () => {
             expect(result).toBe(expectedResult);
         });
     });
     describe('When it doesnt recibe an array', () => {
-        const arr = 'pepe';
+        const string = 'pepe';
         test('Then it should throw an error', () => {
             expect(() => {
-                pop(arr);
+                pop(string);
             }).toThrow('Is not an array');
         });
     });
     describe('When it recibes a function', () => {
         test('Then it should throw an error', () => {
-            let prueba = () => {};
+            let prueba = () => {
+                //Intentionally Empty
+            };
             expect(() => {
                 pop(prueba);
             }).toThrowError('Is a function');
